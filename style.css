@@ -1,0 +1,569 @@
+:root {
+    /* Paleta "selva": verdes claros de fondo y verdes profundos de contraste */
+    --verde-selva-claro: #E7F0DD;   /* fondo general de toda la página */
+    --verde-bosque: #2F4A2C;        /* verde oscuro: barra de menú, títulos */
+    --verde-musgo: #6B8F58;         /* verde medio: acentos, bordes, hover */
+    --verde-hoja: #4C7A3D;          /* verde de enlaces y detalles */
+    --marron-tierra: #8B5A2B;       /* color cálido para el botón principal */
+    --marron-tierra-oscuro: #714821;/* estado hover del botón principal */
+    --texto-oscuro: #223019;        /* color de texto principal */
+    --blanco-crema: #FBFBF4;        /* blanco cálido para tarjetas y contraste */
+
+    /* Tipografías: una para títulos, otra para texto de párrafo */
+    --fuente-titulos: "Fraunces", serif;
+    --fuente-texto: "Karla", sans-serif;
+
+    /* Altura de la barra de menú fija, se usa para no tapar el contenido */
+    --altura-menu: 84px;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET BÁSICO Y ESTILOS GENERALES
+-------------------------------------------------------------------------- */
+
+/* box-sizing: border-box hace que el padding y el borde se incluyan dentro
+   del ancho/alto declarado de un elemento, evitando sorpresas de medidas. */
+* {
+    box-sizing: border-box;/* ==========================================================================
+   PROYECTO:ECO HUB
+   Hoja de estilos (CSS) — comentada línea por bloque para uso educativo.
+
+   ÍNDICE DE ESTE ARCHIVO:
+   1. Variables globales (paleta de colores y medidas)
+   2. Reset básico y estilos generales del documento
+   3. Barra de menú (nav fija)
+   4. Área principal (hero)
+   5. Secciones generales (Nosotros, Problemas, Impacto, Contactos)
+   6. Galería
+   7. Pie de página
+   8. Diseño responsivo (media queries para celular/tablet)
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES GLOBALES
+   Las variables CSS (custom properties) permiten definir un color o medida
+   una sola vez y reutilizarlo en todo el archivo con var(--nombre).
+   Así, si un estudiante quiere cambiar la paleta de colores, solo edita
+   esta sección y el cambio se aplica a toda la página.
+-------------------------------------------------------------------------- */
+
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* Desplazamiento suave al hacer clic en un enlace interno (#id) */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--texto-oscuro);
+    background-color: var(--verde-selva-claro); /* fondo verde claro tipo selva en toda la página */
+    line-height: 1.6;
+
+    /* Reservamos arriba el espacio exacto de la barra fija, para que el
+       contenido no quede oculto debajo de ella. */
+    padding-top: var(--altura-menu);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--verde-bosque);
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    max-width: 65ch; /* limita el largo de línea para facilitar la lectura */
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 14px; /* esquinas suaves, consistentes en todo el sitio */
+}
+
+a {
+    color: var(--verde-hoja);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    text-decoration: underline;
+}
+
+/* Todas las secciones del contenido comparten este "ancla" de desplazamiento:
+   evita que la barra fija tape el título al llegar por un enlace del menú. */
+section[id] {
+    scroll-margin-top: var(--altura-menu);
+}
+
+.contenedor-seccion {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.seccion {
+    padding: 80px 0;
+}
+
+.intro-seccion {
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+    color: var(--verde-bosque);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. BARRA DE MENÚ (NAV FIJA)
+   position: fixed hace que la barra quede "pegada" en la parte superior de
+   la ventana, sin importar cuánto se desplace la página o qué botón del
+   menú se pulse.
+-------------------------------------------------------------------------- */
+.barra-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--altura-menu);
+    background-color: var(--verde-bosque);
+    z-index: 100; /* asegura que quede por encima del resto del contenido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contenedor-menu {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* --- Logo naturalista --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icono {
+    width: 34px;
+    height: 34px;
+    fill: var(--verde-selva-claro);
+}
+
+.logo-nervadura {
+    stroke: var(--verde-bosque);
+    stroke-width: 2;
+}
+
+.logo-texto {
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+    color: var(--blanco-crema);
+    letter-spacing: 0.3px;
+}
+
+.logo-texto strong {
+    color: var(--verde-musgo);
+    font-weight: 700;
+}
+
+/* --- Lista de botones del menú --- */
+.menu-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.menu-nav a {
+    color: var(--blanco-crema);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 8px 2px;
+    border-bottom: 2px solid transparent; /* reservamos espacio para el hover */
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-nav a:hover,
+.menu-nav a:focus-visible {
+    color: var(--verde-musgo);
+    border-bottom-color: var(--verde-musgo);
+    text-decoration: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. ÁREA PRINCIPAL (HERO)
+   Distribuida en dos columnas: texto + botón a la izquierda,
+   imágenes a la derecha (el botón "Ver proyecto" queda al lado derecho
+   del texto gracias a este layout).
+-------------------------------------------------------------------------- */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 24px;
+}
+
+.hero-texto {
+    flex: 1 1 420px;
+}
+
+.hero-eyebrow {
+    color: var(--marron-tierra);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.4px;
+    margin-bottom: 14px;
+}
+
+.hero-texto h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 20px;
+}
+
+.hero-parrafo {
+    color: var(--texto-oscuro);
+}
+
+/* Botón principal "Ver proyecto" */
+.boton-cta {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 14px 30px;
+    background-color: var(--marron-tierra);
+    color: var(--blanco-crema);
+    font-weight: 700;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-cta:hover,
+.boton-cta:focus-visible {
+    background-color: var(--marron-tierra-oscuro);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* Bloque con las dos imágenes de naturaleza del área principal */
+.hero-imagenes {
+    flex: 1 1 380px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 420px;
+}
+
+.hero-img-1 {
+    width: 100%;
+    max-width: 420px;
+    height: 420px;
+    object-fit: cover;
+}
+
+.hero-img-2 {
+    position: absolute;
+    bottom: -30px;
+    left: -20px;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border: 6px solid var(--verde-selva-claro);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --------------------------------------------------------------------------
+   5. SECCIONES GENERALES (Nosotros / Problemas / Impacto / Contactos)
+-------------------------------------------------------------------------- */
+
+/* --- Patrón reutilizable: imagen a un lado, texto al otro --- */
+.contenedor-imagen-texto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+}
+
+.contenedor-imagen-texto .imagen-seccion,
+.contenedor-imagen-texto .texto-seccion {
+    flex: 1 1 380px;
+}
+
+.imagen-seccion {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+
+/* Variante invertida: usada en Contactos para alternar el ritmo visual */
+.contenedor-imagen-texto-invertido {
+    flex-direction: row-reverse;
+}
+
+/* Secciones con fondo blanco cálido para alternar con el verde de fondo
+   general y mejorar la lectura del contenido */
+.seccion-problemas,
+.seccion-impacto {
+    background-color: var(--blanco-crema);
+}
+
+/* --- Problemas solucionados: tarjetas en cuadrícula --- */
+.lista-problemas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.tarjeta-problema {
+    background-color: var(--verde-selva-claro);
+    border-radius: 16px;
+    overflow: hidden;
+    padding-bottom: 4px;
+}
+
+.tarjeta-problema img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 0; /* la imagen ocupa todo el ancho superior de la tarjeta */
+}
+
+.tarjeta-problema div {
+    padding: 20px;
+}
+
+.tarjeta-problema p {
+    font-size: 0.95rem;
+}
+
+/* --- Impacto y aprendizaje: video + texto --- */
+.contenedor-video-texto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+}
+
+.contenedor-video-texto .texto-seccion {
+    flex: 1 1 380px;
+}
+
+/* Truco de "relación de aspecto" para que el video sea responsivo:
+   el envoltorio reserva 56.25% de su ancho como alto (proporción 16:9). */
+.video-envoltorio {
+    flex: 1 1 480px;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.video-envoltorio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- Contactos --- */
+.lista-contactos {
+    list-style: none;
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lista-contactos li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-contacto {
+    font-size: 1.2rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. GALERÍA ("Ver proyectos")
+-------------------------------------------------------------------------- */
+.titulo-galeria {
+    letter-spacing: 1px;
+}
+
+/* Cuadrícula con celdas de tamaño variable: usamos grid-column / grid-row
+   para que algunas imágenes ocupen más espacio que otras. */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 160px;
+    gap: 16px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Imagen grande: ocupa 2 columnas y 2 filas */
+.galeria-grande {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Imagen ancha: ocupa 2 columnas, 1 fila */
+.galeria-ancha {
+    grid-column: span 2;
+}
+
+/* Imagen alta: ocupa 1 columna, 2 filas */
+.galeria-alta {
+    grid-row: span 2;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. PIE DE PÁGINA
+-------------------------------------------------------------------------- */
+.pie-pagina {
+    background-color: var(--verde-bosque);
+    color: var(--blanco-crema);
+    padding: 48px 0 28px;
+}
+
+.contenedor-pie {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.pie-marca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.logo-icono-pie {
+    fill: var(--verde-musgo);
+}
+
+.pie-contactos {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+}
+
+.pie-contactos a {
+    color: var(--blanco-crema);
+}
+
+.pie-derechos {
+    font-size: 0.8rem;
+    color: var(--verde-musgo);
+    margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. DISEÑO RESPONSIVO
+   Ajustes para que el sitio se vea bien en pantallas pequeñas (celulares).
+-------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+
+    :root {
+        --altura-menu: 64px;
+    }
+
+    /* En pantallas pequeñas ocultamos el texto del menú y dejamos solo el
+       logo, para no saturar la barra fija (sigue sin usarse JavaScript,
+       es un ajuste puramente de CSS). */
+    .menu-nav ul {
+        gap: 16px;
+    }
+
+    .menu-nav a {
+        font-size: 0.8rem;
+    }
+
+    .logo-texto {
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        text-align: left;
+    }
+
+    .hero-img-2 {
+        width: 130px;
+        height: 130px;
+        left: -10px;
+        bottom: -20px;
+    }
+
+    .contenedor-imagen-texto,
+    .contenedor-imagen-texto-invertido {
+        flex-direction: column;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+    }
+
+    .galeria-grande {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .galeria-ancha {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-nav a {
+        font-size: 0.72rem;
+    }
+
+    .menu-nav ul {
+        gap: 10px;
+    }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  PROYECTO: Guardianes Verdes
+  Sitio web informativo del proyecto productivo para la certificación en
+  INTEGRACIÓN DE CONTENIDOS DIGITALES (SENA).
+
+  NOTA PARA LOS ESTUDIANTES:
+  Este archivo contiene SOLO estructura (HTML) y usa "style.css" para el
+  diseño. No se usa JavaScript: la navegación entre secciones se logra con
+  enlaces internos (anchors, atributo href="#id") que el propio navegador
+  resuelve, y el efecto de desplazamiento suave se logra con la propiedad
+  CSS "scroll-behavior: smooth".
+  ==========================================================================
+-->
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Hace que el sitio se vea bien en celulares y tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO HUB | Proyecto de Integración de Contenidos Digitales</title>
+
+    <!-- Fuentes de Google Fonts: una para títulos (Fraunces, de aire orgánico)
+         y otra para textos (Karla, clara y legible). Esto es solo una hoja de
+         estilos externa, no es JavaScript. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Enlace a nuestra hoja de estilos propia -->
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+<!-- ======================================================================
+         BARRA DE MENÚ (NAV)
+         Es "fija" (position: fixed en el CSS) por eso permanece en la cima
+         de la pantalla aunque el usuario se desplace o pulse un botón del
+         menú para ir a otra sección.
+    ====================================================================== -->
+    <header class="barra-menu">
+        <div class="contenedor-menu">
+
+            <!-- LOGO: al pulsarlo, el enlace apunta a #inicio, que es el
+                 área principal de la página (efecto "volver al inicio"). -->
+            <a href="#inicio" class="logo" aria-label="Ir al inicio">
+                <!-- Ícono naturalista dibujado con SVG (una hoja estilizada).
+                     Al ser SVG en línea, no necesita archivo de imagen aparte
+                     y se puede colorear con CSS. -->
+                <svg las="logo-icono" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 58C18 52 8 40 8 24 8 14 16 6 26 6c10 0 18 8 18 18 0 16-10 28-24 34z" />
+                    <path d="M32 58V16" class="logo-nervadura" />
+                </svg>
+                <span class="logo-texto">ECO<strong>HUB</strong></span>
+            </a>
+
+            <!-- MENÚ DE NAVEGACIÓN: cada botón es un enlace <a> que apunta al
+                 id de la sección correspondiente más abajo en el mismo
+                 documento. -->
+            <nav class="menu-nav" aria-label="Menú principal">
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#problemas">Problemas solucionados</a></li>
+                    <li><a href="#impacto">Impacto y aprendizaje</a></li>
+                    <li><a href="#contactos">Contactos</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+<!-- ======================================================================
+         ÁREA PRINCIPAL (HERO)
+         id="inicio" -> aquí regresa el usuario cuando pulsa el logo.
+    ====================================================================== -->
+    <section id="inicio" class="hero">
+        <div class="hero-texto">
+            <p class="hero-eyebrow">Técnico en Integración de Contenidos Digitales · SENA</p>
+            <h1>ECO HUB: Un lugar donde el reciclaje cobra vida.</h1>
+            <p class="hero-parrafo">
+               ECO HUB es un proyecto que busca inspirar a los jovemes de la instituucion educativa en la que nos encontramos, a adquirir el habito del compostaje de una manera más didactica y educativa, por medio de un tarro interactivo. Eso es es ECO HUB, un lugar donde los jovemes comiencen a adquirir conciencia y empiezen a cuidar el ambiente.
+            </p>
+            <!-- Botón "Ver proyecto" ubicado al lado derecho del área principal
+                 (ver en style.css la clase .hero, que organiza el texto a la
+                 izquierda y este bloque de acción a la derecha). -->
+            <a href="#galeria" class="boton-cta">Ver proyecto</a>
+        </div>
+
+        <!-- Dos imágenes relacionadas con la naturaleza -->
+        <div class="hero-imagenes">
+            <img src="https://picsum.photos/seed/selva-principal/700/560"
+                 alt="Selva tropical vista desde lo alto, con neblina entre los árboles"
+                 class="hero-img hero-img-1">
+            <img src="https://picsum.photos/seed/rio-selva/420/420"
+                 alt="Río de aguas claras rodeado de vegetación"
+                 class="hero-img hero-img-2">
+        </div>
+    </section>
+<p>      
+                    Somos aprendices del programa <strong>Técnico en Integración de
+                    Contenidos Digitales</strong> del SENA. Como parte de nuestra
+                    <strong>etapa productiva</strong>, desarrollamos este proyecto para
+                    obtener la certificación del programa, aplicando en un caso real
+                    lo aprendido en programación de dispositivos móviles, diseño
+                    digital y producción de contenido audiovisual.
+                </p>
+                <p>
+                    El objetivo es doble: por un lado, fortalecer nuestras competencias<!-- ======================================================================
+         ÁREA "NOSOTROS"
+         Se llega aquí al pulsar el botón "Nosotros" del menú.
+    ====================================================================== -->
+    <section id="nosotros" class="seccion seccion-nosotros">
+        <div class="contenedor-seccion contenedor-imagen-texto">
+
+            <img src="https://picsum.photos/seed/estudiantes-campo/640/480"
+                 alt="Estudiantes del SENA practicando actividades de campo al aire libre"
+                 class="imagen-seccion">
+
+            <div class="texto-seccion">
+                <h2>Nosotros</h2>
+
+                    técnicas creando un producto digital completo (de la idea al sitio
+                    web terminado); por otro, usar esas competencias para visibilizar
+                    problemáticas ambientales de nuestra comunidad y proponer
+                    soluciones sencillas y replicables.
+                </p>
+            </div>
+        </div>
+    </section>
+<!-- ======================================================================
+         ÁREA "PROBLEMAS SOLUCIONADOS"
+         Se llega aquí al pulsar el botón "Problemas solucionados".
+         Contiene varios pares imagen + texto.
+    ====================================================================== -->
+    <section id="problemas" class="seccion seccion-problemas">
+        <div class="contenedor-seccion">
+            <h2>Problemas solucionados</h2>
+            <p class="intro-seccion">
+                Estas son algunas de las problemáticas ambientales que identificamos
+                y sobre las que trabajamos durante el proyecto.
+            </p>
+
+            <!-- Cada "tarjeta-problema" es un par imagen-texto -->
+            <div class="lista-problemas">
+
+                <article class="tarjeta-problema">
+                    <img src="https://picsum.photos/seed/deforestacion/500/360"
+                         alt="Zona de bosque afectada por la deforestación">
+                    <div>
+                        <h3>Deforestación local</h3>
+                        <p>
+                            Registramos con video y fotografía las zonas más afectadas
+                            y creamos piezas educativas para redes sociales que
+                            explican el impacto de la tala indiscriminada y cómo
+                            reportarla ante las autoridades ambientales.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tarjeta-problema">
+                    <img src="https://picsum.photos/seed/agua-contaminada/500/360"
+                         alt="Fuente hídrica con presencia de residuos sólidos">
+                    <div>
+                        <h3>Contaminación de fuentes hídricas</h3>
+                        <p>
+                            Diseñamos una campaña digital de recolección de residuos
+                            en quebradas cercanas, apoyada con material gráfico e
+                            infografías que enseñan a separar correctamente los
+                            desechos antes de que lleguen al agua.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tarjeta-problema">
+                    <img src="https://picsum.photos/seed/residuos-comunidad/500/360"
+                         alt="Punto de acopio comunitario de residuos reciclables">
+                    <div>
+                        <h3>Manejo inadecuado de residuos</h3>
+                        <p>
+                            Creamos una guía audiovisual sobre reciclaje en el hogar y
+                            un mapa digital con los puntos de acopio más cercanos,
+                            facilitando que la comunidad participe en el proceso.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+<!-- ======================================================================
+         ÁREA "IMPACTO Y APRENDIZAJE"
+         Se llega aquí al pulsar el botón "Impacto y aprendizaje".
+         Incluye un video naturalista (incrustado con <iframe>, que es una
+         etiqueta HTML normal; no requiere JavaScript) y un texto descriptivo.
+    ====================================================================== -->
+    <section id="impacto" class="seccion seccion-impacto">
+        <div class="contenedor-seccion contenedor-video-texto">
+
+            <div class="video-envoltorio">
+                <!--
+                    Video de YouTube incrustado con <iframe>. Esta es una
+                    etiqueta HTML estándar: el reproductor que YouTube muestra
+                    dentro del iframe puede usar su propio JavaScript interno,
+                    pero nuestro sitio no escribe ni un solo script.
+                -->
+                <iframe
+                    src="https://www.youtube.com/embed/R3LKUayne0U"
+                    title="Documental: naturaleza salvaje de Colombia"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="texto-seccion">
+                <h2>Impacto y aprendizaje</h2>
+                <p>
+                    Este documental ilustra la riqueza natural que buscamos proteger
+                    con nuestro proyecto. Verlo nos ayudó a entender la magnitud de
+                    los ecosistemas que documentamos y a definir el tono visual de
+                    nuestras propias piezas audiovisuales.
+                </p>
+                <p>
+                    Como aprendizaje, este proyecto nos permitió aplicar de forma
+                    integrada varias competencias del programa: planeación de
+                    contenidos, edición audiovisual, diseño de interfaces y
+                    maquetación web, además de fortalecer habilidades blandas como
+                    el trabajo en equipo y la comunicación con la comunidad.
+                </p>
+            </div>
+        </div>
+    </section>
+<!-- ======================================================================
+         ÁREA "CONTACTOS"
+         Se llega aquí al pulsar el botón "Contactos".
+    ====================================================================== -->
+    <section id="contactos" class="seccion seccion-contactos">
+        <div class="contenedor-seccion contenedor-imagen-texto contenedor-imagen-texto-invertido">
+
+            <img src="https://picsum.photos/seed/paisaje-contacto/640/480"
+                 alt="Paisaje natural de montaña al atardecer"
+                 class="imagen-seccion">
+
+            <div class="texto-seccion">
+                <h2>Contactos</h2>
+                <p>Escríbenos o síguenos por cualquiera de estos medios:</p>
+
+                <!-- Lista de contactos: cada ítem es un enlace real (mailto,
+                     tel, wa.me, etc.) o un enlace de ejemplo a completar por
+                     el equipo del proyecto. -->
+                <ul class="lista-contactos">
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">📍</span>
+                        <span>Centro de Formación SENA, Cali, Valle del Cauca</span>
+                    </li>
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">✉️</span>
+                        <a href="mailto:guardianesverdes.sena@example.com">guardianesverdes.sena@example.com</a>
+                    </li>
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">💬</span>
+                        <a href="https://wa.me/573000000000" target="_blank" rel="noopener">WhatsApp: +57 300 000 0000</a>
+                    </li>
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">▶️</span>
+                        <a href="https://youtube.com/@guardianesverdes" target="_blank" rel="noopener">YouTube: @guardianesverdes</a>
+                    </li>
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">📷</span>
+                        <a href="https://instagram.com/guardianesverdes" target="_blank" rel="noopener">Instagram: @guardianesverdes</a>
+                    </li>
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">✖️</span>
+                        <a href="https://x.com/guardianesverde" target="_blank" rel="noopener">X: @guardianesverde</a>
+                    </li>
+                    <li>
+                        <span class="icono-contacto" aria-hidden="true">🎵</span>
+                        <a href="https://tiktok.com/@guardianesverdes" target="_blank" rel="noopener">TikTok: @guardianesverdes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+<!-- ======================================================================
+         ÁREA "VER PROYECTOS" (GALERÍA)
+         Se llega aquí al pulsar el botón "Ver proyecto" del área principal.
+    ====================================================================== -->
+    <section id="galeria" class="seccion seccion-galeria">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-galeria">GALERÍA</h2>
+            <p class="intro-seccion">
+                Un vistazo a los registros fotográficos del proyecto, en distintos
+                formatos y tamaños.
+            </p>
+
+            <!-- Cuadrícula (CSS Grid) con imágenes de distinto tamaño.
+                 El tamaño de cada imagen se controla en style.css usando
+                 clases como "galeria-grande", "galeria-ancha", etc. -->
+            <div class="galeria-grid">
+                <img src="https://picsum.photos/seed/galeria1/900/900" alt="Follaje verde iluminado por el sol" class="galeria-grande">
+                <img src="https://picsum.photos/seed/galeria2/600/400" alt="Sendero ecológico en la selva">
+                <img src="https://picsum.photos/seed/galeria3/600/800" alt="Cascada rodeada de vegetación" class="galeria-alta">
+                <img src="https://picsum.photos/seed/galeria4/600/400" alt="Aprendices registrando material en campo">
+                <img src="https://picsum.photos/seed/galeria5/900/500" alt="Panorámica del valle desde la montaña" class="galeria-ancha">
+                <img src="https://picsum.photos/seed/galeria6/600/400" alt="Detalle de hojas y gotas de agua">
+                <img src="https://picsum.photos/seed/galeria7/600/400" alt="Fauna silvestre en su hábitat natural">
+                <img src="https://picsum.photos/seed/galeria8/600/600" alt="Punto de reforestación comunitaria">
+            </div>
+        </div>
+    </section>
+<!-- ======================================================================
+         PIE DE PÁGINA
+         Muestra nuevamente los datos de contacto, como pide el requerimiento.
+    ====================================================================== -->
+    <footer class="pie-pagina">
+        <div class="contenedor-pie">
+            <div class="pie-marca">
+                <svg class="logo-icono logo-icono-pie" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 58C18 52 8 40 8 24 8 14 16 6 26 6c10 0 18 8 18 18 0 16-10 28-24 34z" />
+                    <path d="M32 58V16" class="logo-nervadura" />
+                </svg>
+                <p>Guardianes Verdes — Proyecto de Integración de Contenidos Digitales, SENA</p>
+            </div>
+
+            <ul class="pie-contactos">
+                <li>📍 Cali, Valle del Cauca</li>
+                <li>✉️ <a href="mailto:guardianesverdes.sena@example.com">guardianesverdes.sena@example.com</a></li>
+                <li>💬 <a href="https://wa.me/573000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+                <li>▶️ <a href="https://youtube.com/@guardianesverdes" target="_blank" rel="noopener">YouTube</a></li>
+                <li>📷 <a href="https://instagram.com/guardianesverdes" target="_blank" rel="noopener">Instagram</a></li>
+                <li>✖️ <a href="https://x.com/guardianesverde" target="_blank" rel="noopener">X</a></li>
+                <li>🎵 <a href="https://tiktok.com/@guardianesverdes" target="_blank" rel="noopener">TikTok</a></li>
+            </ul>
+
+            <p class="pie-derechos">&copy; 2026 Guardianes Verdes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    
+  </body>
+</html>
